@@ -1,0 +1,21 @@
+<div class="logincontainer">
+  <div class="loginform">
+    <h2>Log In</h2>
+
+    <%= form_tag(access_customer_login_attempt_path, method: :post) do %>
+      <table>
+        <tr>
+          <td> <%= text_field_tag(:nhs_number, params[:nhs_number], placeholder: "Nhs Number") %></td>
+        </tr>
+        <tr>
+          <td> <%= password_field_tag(:password, "", placeholder: "Password") %></td>
+        </tr>
+
+        <tr>
+          <td> <%= submit_tag("Log In") %></td>
+        </tr>
+      </table>
+
+    <% end %>
+  </div>
+</div>

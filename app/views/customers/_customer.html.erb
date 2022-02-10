@@ -1,10 +1,5 @@
 <div id="<%= dom_id customer %>">
   <p>
-    <strong>Password digest:</strong>
-    <%= customer.password_digest %>
-  </p>
-
-  <p>
     <strong>Firstname:</strong>
     <%= customer.firstname %>
   </p>
@@ -28,5 +23,9 @@
     <strong>Email:</strong>
     <%= customer.email %>
   </p>
+
+  <div class="Customer Orders">
+    <%= turbo_frame_tag "new_customer_order", src: new_customer_customer_order_path(customer), target: "_top" %>
+  </div>
 
 </div>
