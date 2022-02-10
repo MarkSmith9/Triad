@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Triad</title>
+    <title>Tests</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,4 +12,15 @@
   <body>
     <%= yield %>
   </body>
+
+  <!-- Open java script script tak -->
+
+  <script type='text/javascript' src="govuk-frontend.min.js"></script>
+  <script>
+      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+    </script>
+    <script>
+      window.GOVUKFrontend.initAll()
+    </script>
 </html>
+

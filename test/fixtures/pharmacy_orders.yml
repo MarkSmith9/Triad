@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pharmacy: one
+  supplier: one
+  amount: 1
+  status: 1
+  delivery_address: MyString
+  postcode: MyString
+
+two:
+  pharmacy: two
+  supplier: two
+  amount: 1
+  status: 1
+  delivery_address: MyString
+  postcode: MyString
