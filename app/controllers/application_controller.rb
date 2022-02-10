@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
         unless session[:type] == "customer"
             flash[:notice] = "You Do Not Have Permission To View That Page"
-            redirect_to(access_login_path)
+            redirect_to(access_customer_login_path)
         end
     end
 
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
         unless session[:type] == "supplier"
             flash[:notice] = "You Do Not Have Permission To View That Page"
-            redirect_to(access_login_path)
+            redirect_to(access_supplier_login_path)
         end
     end
 
@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
         unless session[:type] == "pharmacy"
         flash[:notice] = "You Do Not Have Permission To View That Page"
-        redirect_to(access_login_path)
+        redirect_to(access_pharmacy_login_path)
         end
     end
 end

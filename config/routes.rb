@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'public/index'
+  get 'public/customer_orders'
   get 'access/logout'
   post 'access/customer_login_attempt'
   post 'access/supplier_login_attempt'
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
   get 'access/customer_login'
   get 'access/supplier_login'
   get 'access/pharmacy_login'
+
 
   resources :pharmacies
   resources :customers do
@@ -16,4 +19,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+
+  root "public#index"
 end

@@ -1,40 +1,5 @@
-<%= turbo_frame_tag "new_customer_order", src: new_customer_customer_order_path(customer), target: "_top" %>
-<%= form_with(model: [@customer_order.customer, @customer_order]) do |form| %>
-  <% if customer_order.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
+<h1>New Order</h1>
 
-      <ul>
-        <% bid.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render "form", customer_order: @customer_order %>
 
-
-  <div>
-    <%= form.label :supplier_id, style: "display: block" %>
-    <%= form.text_field :supplier_id %>
-  </div>
-
-
-  <div>
-    <%= form.label :deliver_address, style: "display: block" %>
-    <%= form.text_field :deliver_address %>
-  </div>
-
-  <div>
-    <%= form.label :postcode, style: "display: block" %>
-    <%= form.text_field :postcode %>
-  </div>
-
-  <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<br>
