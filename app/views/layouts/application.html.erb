@@ -57,7 +57,19 @@
     </div>
   </div>
 </header>
-<div class="govuk-phase-banner">
+
+<div class="main">
+ 
+
+  <div class="govuk-width-container">
+  <!-- Bad Back whoops-->
+  <a onclick="history.back()" class="govuk-back-link" href="#">Back</a>
+
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-phase-banner">
   <p class="govuk-phase-bannercontent">
     <strong class="govuk-tag govuk-phase-bannercontenttag">
       pre-alpha
@@ -67,14 +79,19 @@
     </span>
   </p>
 </div>
-<div class="main">
-  <% if !flash[:notice].blank? %>
+       <% if !flash[:notice].blank? %>
     <div class="notice">
       <%= flash[:notice] %>
     </div>
   <% end %>
   <div class='content'>
     <%= yield  %>
+      </div>
+    </div>
+
+  </main>
+</div>
+
   </div>
 </div>
     <footer class="govuk-footer " role="contentinfo">

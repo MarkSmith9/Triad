@@ -1,36 +1,28 @@
 <div class="logincontainer">
   <div class="loginform">
     <h2 class="govuk-heading-l" styles="align-content:center">Log In</h2>
-
-
     <%= form_tag(access_supplier_login_attempt_path, method: :post) do %>
-      <table>
-      <tr>
+    <table>
       <div class="govuk-form-group" style="align-content:center">
-  <label class="govuk-label" for="one-half">
-    Username
-  </label>
-  </tr>
+        <tr>
+            <td><%= label_tag "Username", nil, class: 'govuk-label'%></td>
+        </tr>
         <tr>
           <td> <%= text_field_tag(:name, params[:name], placeholder: "Name", class: "govuk-input govuk-!-width-one-half") %></td>
         </tr>
-        </div>
+      </div>
+      <div class="govuk-form-group" style="align-content:center">
         <tr>
-        <div class="govuk-form-group" style="align-content:center">
-  <label class="govuk-label" for="one-half">
-    Password
-  </label>
-  </tr>
+          <td><%= label_tag "Password", nil, class: 'govuk-label'%></td>
+        </tr>
         <tr>
           <td> <%= password_field_tag(:password, "", placeholder: "Password", class: "govuk-input govuk-!-width-one-half") %></td>
         </tr>
-</div>
+      </div>
         <tr>
-          <td> <%= submit_tag("Log In", class:"govuk-button", data-module="govuk-button", styles="align-content:center") %></td>
+         <td> <%= submit_tag("Log In", class:"govuk-button") %></td>
         </tr>
-      </table>
-
+    </table>
     <% end %>
-
   </div>
 </div>
