@@ -8,7 +8,7 @@
             <td><%= label_tag "Username", nil, class: 'govuk-label'%></td>
         </tr>
         <tr>
-          <td> <%= text_field_tag(:nhs_number, params[:nhs_number], placeholder: "Nhs Number", class: "govuk-input govuk-!-width-one-half") %></td>
+          <td> <%= text_field_tag(:nhs_number, params[:nhs_number], placeholder: "Nhs Number", class: "govuk-input govuk-!-width-full") %></td>
         </tr>
       </div>
       <div class="govuk-form-group" style="align-content:center">
@@ -16,7 +16,7 @@
           <td><%= label_tag "Password", nil, class: 'govuk-label'%></td>
         </tr>
         <tr>
-          <td> <%= password_field_tag(:password, "", placeholder: "Password", class: "govuk-input govuk-!-width-one-half") %></td>
+          <td> <%= password_field_tag(:password, "", placeholder: "Password", class: "govuk-input govuk-!-width-full") %></td>
         </tr>
       </div>
         <tr>

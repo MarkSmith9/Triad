@@ -13,28 +13,23 @@
 
 
   <div>
-    <%= form.label :supplier_id, style: "display: block" %>
-    <%= form.text_field :supplier_id %>
+    <%= form.label :supplier_id, style: "display: block", class: 'govuk-label' %>
+    <%= form.select :supplier_id, @suppliers.map{|s| [s.name, s.id]}, {include_blank: "Select something"}, {class: "govuk-select", required: true} %>
   </div>
 
 
   <div>
-    <%= form.label :deliver_address, style: "display: block" %>
-    <%= form.text_field :deliver_address %>
+    <%= form.label :deliver_address, style: "display: block", class: 'govuk-label' %>
+    <%= form.text_field :deliver_address, class: "govuk-input govuk-!-width-one-half", required: true %>
   </div>
 
   <div>
-    <%= form.label :postcode, style: "display: block" %>
-    <%= form.text_field :postcode %>
+    <%= form.label :postcode, style: "display: block", class: 'govuk-label' %>
+    <%= form.text_field :postcode, class: "govuk-input govuk-!-width-one-half", required: true%>
     
   </div>
 
   <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class:"govuk-button"%>
   </div>
 <% end %>

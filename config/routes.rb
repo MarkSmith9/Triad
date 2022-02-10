@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'pharmacy_orders/new'
+  get 'pharmacy_orders/create'
   get 'public/index'
   get 'public/customer_orders'
+  get 'public/pharmacy_orders'
   get 'access/logout'
   post 'access/customer_login_attempt'
   post 'access/supplier_login_attempt'
@@ -10,7 +13,9 @@ Rails.application.routes.draw do
   get 'access/pharmacy_login'
 
 
-  resources :pharmacies
+  resources :pharmacies do
+    resources :pharmacy_orders
+  end
   resources :customers do
     resources :customer_orders
   end

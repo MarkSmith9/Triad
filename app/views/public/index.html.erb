@@ -1,119 +1,113 @@
-
-<%= if session[:id] 
-    link_to "Tests", new_customer_customer_order_path(session[:id]) 
-end%>
-
-
-
-<div class="govuk-tabs" data-module="govuk-tabs">
+<div class="govuk-tabs" data-module="govuk-tabs" styles="justify-content: center">
   <h2 class="govuk-tabs__title">
     Contents
   </h2>
   <ul class="govuk-tabs__list">
     <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
       <a class="govuk-tabs__tab" href="#customer">
-        Customer
+        Info
       </a>
     </li>
     <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#past-week">
-        Past week
+      <a class="govuk-tabs__tab" href="#supplier">
+        Suppliers
       </a>
     </li>
     <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#past-month">
-        Past month
+      <a class="govuk-tabs__tab" href="#pharmacy">
+        Pharmacies
       </a>
     </li>
   </ul>
   <div class="govuk-tabs__panel" id="customer">
-    <h2 class="govuk-heading-l">Past day</h2>
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Case manager</th>
-          <th scope="col" class="govuk-table__header">Cases opened</th>
-          <th scope="col" class="govuk-table__header">Cases closed</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">David Francis</td>
-          <td class="govuk-table__cell">3</td>
-          <td class="govuk-table__cell">0</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Paul Farmer</td>
-          <td class="govuk-table__cell">1</td>
-          <td class="govuk-table__cell">0</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Rita Patel</td>
-          <td class="govuk-table__cell">2</td>
-          <td class="govuk-table__cell">0</td>
-        </tr>
-      </tbody>
-    </table>
+        <h2 class="govuk-heading-l">Order coronavirus (COVID-19) rapid lateral flow tests</h2>
+        <p class="govuk-body">Use this service to
+        
+        <% if session[:type] == "customer"%>
+        <%= link_to "order a free pack", new_customer_customer_order_path(session[:id]) %> 
+        <% else%>
+        <%= link_to "order a free pack", access_customer_login_path %> 
+        <% end %>
+of rapid lateral flow tests to be sent to your home</p>
+        <p class="govuk-body">​​You can find out which COVID-19 test you should get if you’re not sure what sort of test you should use</p>
+        <p class="govuk-body">​​If you have symptoms that you’re concerned about, contact 111 or speak to your GP. In an emergency, dial 999.</p>
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              If you have new coronavirus (COVID-19) symptoms, self-isolate and <a href = "https://self-referral.test-for-coronavirus.service.gov.uk/antigen/confirm-eligible" class="govuk-link">get a polymerase chain reaction (PCR) test </a> as soon as possible, even if your symptoms are mild.
+            </strong>
+        </div>
+
+
+        <% if session[:type] == "customer"%>
+            <%= link_to "Manage Orders", public_customer_orders_path, class:"govuk-button"%>
+        <% else%>
+            <%= link_to "Login", access_customer_login_path, class:"govuk-button"%>
+        <% end %>
+        
+
 
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-week">
-    <h2 class="govuk-heading-l">Past week</h2>
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Case manager</th>
-          <th scope="col" class="govuk-table__header">Cases opened</th>
-          <th scope="col" class="govuk-table__header">Cases closed</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">David Francis</td>
-          <td class="govuk-table__cell">24</td>
-          <td class="govuk-table__cell">18</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Paul Farmer</td>
-          <td class="govuk-table__cell">16</td>
-          <td class="govuk-table__cell">20</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Rita Patel</td>
-          <td class="govuk-table__cell">24</td>
-          <td class="govuk-table__cell">27</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="supplier">
+  <h2 class="govuk-heading-l">Manage Orders and Stock of Lateral Flow Tests (LFT)</h2>
+  <p class="govuk-body">Use this service to
+  
+  <% if session[:type] == "supplier"%>
+  <%= link_to "order packs from the manufacturer", new_customer_customer_order_path(session[:id]) %> 
+  <% else%>
+  <%= link_to "order packs from the manufacturer", access_supplier_login_path %> 
+  <% end %>
+into your stock</p>
+
+<p class="govuk-body govuk-!-font-weight-bold">Or</p>
+
+<p class="govuk-body">
+<% if session[:type] == "supplier"%>
+<%= link_to "Manage orders from", new_customer_customer_order_path(session[:id]) %> 
+<% else%>
+<%= link_to "Manage orders from ", access_supplier_login_path %> 
+<% end %>
+placed by pharmacies</p>
+
+
+  <% if session[:type] == "supplier"%>
+      <%= link_to "Manage Orders", public_customer_orders_path, class:"govuk-button"%>
+  <% else%>
+      <%= link_to "Login", access_supplier_login_path, class:"govuk-button"%>
+  <% end %>
 
   </div>
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="past-month">
-    <h2 class="govuk-heading-l">Past month</h2>
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Case manager</th>
-          <th scope="col" class="govuk-table__header">Cases opened</th>
-          <th scope="col" class="govuk-table__header">Cases closed</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">David Francis</td>
-          <td class="govuk-table__cell">98</td>
-          <td class="govuk-table__cell">95</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Paul Farmer</td>
-          <td class="govuk-table__cell">122</td>
-          <td class="govuk-table__cell">131</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Rita Patel</td>
-          <td class="govuk-table__cell">126</td>
-          <td class="govuk-table__cell">142</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="pharmacy">
+        <h2 class="govuk-heading-l">Pharmacy Info</h2>
+        <p class="govuk-body">Use this service to
+  
+        <% if session[:type] == "pharmacy"%>
+        <%= link_to "place a lateral flow test order", new_pharmacy_pharmacy_order_path(session[:id]) %> 
+        <% else%>
+        <%= link_to "place a lateral flow test order", access_pharmacy_login_path %> 
+        <% end %>
+      to an available nearby supplier</p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">Or</p>
+
+      <p class="govuk-body">
+  
+      <% if session[:type] == "pharmacy"%>
+      <%= link_to "Manage stock info", new_customer_customer_order_path(session[:id]) %> 
+      <% else%>
+      <%= link_to "Manage stock info", access_pharmacy_login_path %> 
+      <% end %>
+    such as stock amount and predicted stock decrease</p>
+
+    <% if session[:type] == "pharmacy"%>
+    <%= link_to "Manage Orders", public_customer_orders_path, class:"govuk-button"%>
+<% else%>
+    <%= link_to "Login", access_pharmacy_login_path, class:"govuk-button"%>
+<% end %>
+
+
+
 
   </div>
 

@@ -1,6 +1,6 @@
 <div class="logincontainer">
   <div class="loginform">
-    <h2 class="govuk-heading-l" styles="align-content:center">Log In</h2>
+    <h2 class="govuk-heading-l" styles="align-content:center">Supplier Log In</h2>
     <%= form_tag(access_supplier_login_attempt_path, method: :post) do %>
     <table>
       <div class="govuk-form-group" style="align-content:center">
@@ -8,7 +8,7 @@
             <td><%= label_tag "Username", nil, class: 'govuk-label'%></td>
         </tr>
         <tr>
-          <td> <%= text_field_tag(:name, params[:name], placeholder: "Name", class: "govuk-input govuk-!-width-one-half") %></td>
+          <td> <%= text_field_tag(:name, params[:name], placeholder: "Name", class: "govuk-input govuk-!-width-full") %></td>
         </tr>
       </div>
       <div class="govuk-form-group" style="align-content:center">
@@ -16,7 +16,7 @@
           <td><%= label_tag "Password", nil, class: 'govuk-label'%></td>
         </tr>
         <tr>
-          <td> <%= password_field_tag(:password, "", placeholder: "Password", class: "govuk-input govuk-!-width-one-half") %></td>
+          <td> <%= password_field_tag(:password, "", placeholder: "Password", class: "govuk-input govuk-!-width-full") %></td>
         </tr>
       </div>
         <tr>

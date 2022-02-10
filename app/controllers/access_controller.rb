@@ -37,7 +37,7 @@ class AccessController < ApplicationController
     if auth_custom
       session[:id] = auth_custom.id
       session[:type]= "customer"
-      flash[:notice] = "You have successfully logged in."
+      redirect_to public_customer_orders_path
     else
       flash.now[:notice] = "Invalid Login"
       render('customer_login')
@@ -75,7 +75,7 @@ class AccessController < ApplicationController
       session[:id] = auth_pharm.id
       session[:type]= "pharmacy"
       flash[:notice] = "You have successfully logged in."
- 
+      redirect_to public_pharmacy_orders_path
     else
       flash.now[:notice] = "Invalid Login"
       render('pharmacy_login')

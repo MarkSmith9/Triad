@@ -1,3 +1,10 @@
 <!-- Display a customer order, used to view update on an order-->
 
-<p> <%= customer_order.status%> </p>
+
+
+<tr>
+<td class="govuk-table__cell"><%= customer_order.id%></td>
+<td class="govuk-table__cell"><%= customer_order.created_at.strftime('%Y-%m-%d')%></td>
+<td class="govuk-table__cell"><%= customer_order.status%></td>
+
+</tr>

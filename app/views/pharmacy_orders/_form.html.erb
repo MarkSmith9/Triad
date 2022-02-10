@@ -1,0 +1,42 @@
+<%= form_with(model: [@pharmacy_order.pharmacy, @pharmacy_order]) do |form| %>
+    <% if pharmacy_order.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(bid.errors.count, "error") %> prohibited this bid from being saved:</h2>
+  
+        <ul>
+          <% bid.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+  
+    <div>
+      <%= form.label :supplier_id, style: "display: block", class: 'govuk-label' %>
+      <%= form.select :supplier_id, @suppliers.map{|s| [s.name + ", Aval Stock: " + s.stock.to_s, s.id]}, {include_blank: "Select something"}, {class: "govuk-select", required: true} %>
+    </div>
+  
+  
+    <div>
+      <%= form.label :amount, style: "display: block", class: 'govuk-label' %>
+      <%= form.text_field :amount, class: "govuk-input govuk-!-width-one-half", required: true %>
+    </div>
+  
+    <div>
+      <%= form.label :delivery_address, style: "display: block", class: 'govuk-label' %>
+      <%= form.text_field :delivery_address, class: "govuk-input govuk-!-width-one-half", required: true%>
+      
+    </div>
+
+    <div>
+    <%= form.label :postcode, style: "display: block", class: 'govuk-label' %>
+    <%= form.text_field :postcode, class: "govuk-input govuk-!-width-one-half", required: true%>
+    
+  </div>
+  
+    <div>
+      <%= form.submit class:"govuk-button"%>
+    </div>
+  <% end %>
+  

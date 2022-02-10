@@ -1,3 +1,5 @@
+
+<%= link_to "TEST", new_pharmacy_pharmacy_order_path(session[:id])%>
 <table class="govuk-table">
   <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
   <thead class="govuk-table__head">
@@ -8,6 +10,6 @@
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <%= render @customer.customer_orders.order("created_at DESC")%>
+    <%= render @pharmacy.pharmacy_orders.order("created_at DESC")%>
   </tbody>
 </table>
