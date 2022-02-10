@@ -1,6 +1,24 @@
-# Triad
-Triad
-Trello -
-https://trello.com/b/3exDeAys/triad
-Drive -
-https://drive.google.com/drive/folders/1N3yjRYZL8_eeJSLYdhToas9mFn94SHU5
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
