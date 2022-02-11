@@ -1,17 +1,20 @@
-
-<%= link_to "Create Order", new_pharmacy_pharmacy_order_path(session[:id]), class:"govuk-button"%>
 <table class="govuk-table">
-  <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
+  <caption class="govuk-table__caption govuk-table__caption--m">Pharmacy Orders</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">ID</th>
-            
-      <th scope="col" class="govuk-table__header">Supplier</th>
+      <th scope="col" class="govuk-table__header">Amount</th>
       <th scope="col" class="govuk-table__header">Created At</th>
       <th scope="col" class="govuk-table__header">Status</th>
+
     </tr>
   </thead>
   <tbody class="govuk-table__body">
-    <%= render @pharmacy.pharmacy_orders.order("created_at DESC")%>
+  <% @supplier.pharmacy_orders.order("created_at DESC").each do |pharmacy_order| %>
+      <%= render @supplier.pharmacy_orders.order("created_at DESC")%>
+
+  <%end%>
+
+
   </tbody>
 </table>

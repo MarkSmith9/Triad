@@ -1,6 +1,7 @@
 <tr>
 <td class="govuk-table__cell"><%= pharmacy_order.id%></td>
+<td class="govuk-table__cell"><%= pharmacy_order.supplier.name%></td>
 <td class="govuk-table__cell"><%= pharmacy_order.created_at.strftime('%Y-%m-%d')%></td>
-<td class="govuk-table__cell"><%= pharmacy_order.status%></td>
+<td class="govuk-table__cell"><%= pharmacy_order.status == 0 ? "Incomplete" : "Completed"%></td>
 
 </tr>

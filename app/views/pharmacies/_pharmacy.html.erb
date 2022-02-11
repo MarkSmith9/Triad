@@ -1,32 +1,14 @@
-<div id="<%= dom_id pharmacy %>">
-  <p>
-    <strong>Name:</strong>
-    <%= pharmacy.name %>
-  </p>
+<!-- Display a customer order, used to view update on an order-->
 
-  <p>
-    <strong>Password digest:</strong>
-    <%= pharmacy.password_digest %>
-  </p>
 
-  <p>
-    <strong>Deliver address:</strong>
-    <%= pharmacy.deliver_address %>
-  </p>
 
-  <p>
-    <strong>Postcode:</strong>
-    <%= pharmacy.postcode %>
-  </p>
+<tr>
+<td class="govuk-table__cell"><%= pharmacy.name%></td>
+<td class="govuk-table__cell"><%= pharmacy.deliver_address%></td>
+<td class="govuk-table__cell"><%= pharmacy.postcode%></td>
+<td class="govuk-table__cell"><%= pharmacy.stock%></td>
+<td class="govuk-table__cell"><%= link_to "Order", new_pharmacy_customer_pharmacy_order_path(pharmacy), class:"govuk-button"%> </td>
 
-  <p>
-    <strong>Stock:</strong>
-    <%= pharmacy.stock %>
-  </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= pharmacy.email %>
-  </p>
 
-</div>
+</tr>

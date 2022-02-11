@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_10_131607) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_11_103320) do
   create_table "customer_orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.bigint "supplier_id", null: false
@@ -21,6 +21,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_10_131607) do
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_customer_orders_on_customer_id"
     t.index ["supplier_id"], name: "index_customer_orders_on_supplier_id"
+  end
+
+  create_table "customer_pharmacy_orders", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.bigint "pharmacy_id", null: false
+    t.date "date"
+    t.boolean "collected"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_customer_pharmacy_orders_on_customer_id"
+    t.index ["pharmacy_id"], name: "index_customer_pharmacy_orders_on_pharmacy_id"
   end
 
   create_table "customers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -83,6 +94,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_10_131607) do
 
   add_foreign_key "customer_orders", "customers"
   add_foreign_key "customer_orders", "suppliers"
+  add_foreign_key "customer_pharmacy_orders", "customers"
+  add_foreign_key "customer_pharmacy_orders", "pharmacies"
   add_foreign_key "pharmacy_orders", "pharmacies"
   add_foreign_key "pharmacy_orders", "suppliers"
   add_foreign_key "supplier_orders", "suppliers"

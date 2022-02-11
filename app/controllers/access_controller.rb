@@ -57,6 +57,7 @@ class AccessController < ApplicationController
       session[:id] = auth_supplier.id
       session[:type]= "supplier"
       flash[:notice] = "You have successfully logged in."
+      redirect_to public_supplier_orders_path
     else
       flash.now[:notice] = "Invalid Login"
       render('supplier_login')
@@ -64,12 +65,15 @@ class AccessController < ApplicationController
   end
 
   def pharmacy_login_attempt
+
     if params[:name].present? && params[:password].present?
       pharm = Pharmacy.where(name: params[:name]).first
       if pharm
         auth_pharm = pharm.authenticate(params[:password])
+        puts auth_pharm
       end
     end
+
 
     if auth_pharm
       session[:id] = auth_pharm.id

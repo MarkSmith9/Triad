@@ -28,7 +28,7 @@
         <% else%>
         <%= link_to "order a free pack", access_customer_login_path %> 
         <% end %>
-of rapid lateral flow tests to be sent to your home</p>
+of rapid lateral flow tests to be sent to your home. Or <%= link_to "find a pharmacy near you", public_pharmacy_viewer_path %></p>
         <p class="govuk-body">​​You can find out which COVID-19 test you should get if you’re not sure what sort of test you should use</p>
         <p class="govuk-body">​​If you have symptoms that you’re concerned about, contact 111 or speak to your GP. In an emergency, dial 999.</p>
         <div class="govuk-warning-text">
@@ -54,7 +54,7 @@ of rapid lateral flow tests to be sent to your home</p>
   <p class="govuk-body">Use this service to
   
   <% if session[:type] == "supplier"%>
-  <%= link_to "order packs from the manufacturer", new_customer_customer_order_path(session[:id]) %> 
+  <%= link_to "order packs from the manufacturer", new_supplier_supplier_order_path(session[:id]) %> 
   <% else%>
   <%= link_to "order packs from the manufacturer", access_supplier_login_path %> 
   <% end %>
@@ -64,15 +64,15 @@ into your stock</p>
 
 <p class="govuk-body">
 <% if session[:type] == "supplier"%>
-<%= link_to "Manage orders from", new_customer_customer_order_path(session[:id]) %> 
+<%= link_to "Manage orders placed by pharmacies", public_view_orders_path %> 
 <% else%>
-<%= link_to "Manage orders from ", access_supplier_login_path %> 
+<%= link_to "Manage orders placed by pharmacies", public_view_orders_path %> 
 <% end %>
-placed by pharmacies</p>
+</p>
 
 
   <% if session[:type] == "supplier"%>
-      <%= link_to "Manage Orders", public_customer_orders_path, class:"govuk-button"%>
+      <%= link_to "Manage Orders", public_supplier_orders_path, class:"govuk-button"%>
   <% else%>
       <%= link_to "Login", access_supplier_login_path, class:"govuk-button"%>
   <% end %>
@@ -94,14 +94,14 @@ placed by pharmacies</p>
       <p class="govuk-body">
   
       <% if session[:type] == "pharmacy"%>
-      <%= link_to "Manage stock info", new_customer_customer_order_path(session[:id]) %> 
+      <%= link_to "Manage stock info", public_pharmacy_orders_path %> 
       <% else%>
       <%= link_to "Manage stock info", access_pharmacy_login_path %> 
       <% end %>
     such as stock amount and predicted stock decrease</p>
 
     <% if session[:type] == "pharmacy"%>
-    <%= link_to "Manage Orders", public_customer_orders_path, class:"govuk-button"%>
+    <%= link_to "Manage Orders", public_pharmacy_orders_path, class:"govuk-button"%>
 <% else%>
     <%= link_to "Login", access_pharmacy_login_path, class:"govuk-button"%>
 <% end %>

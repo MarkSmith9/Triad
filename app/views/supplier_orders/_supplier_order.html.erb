@@ -1,0 +1,8 @@
+<tr>
+<td class="govuk-table__cell"><%= supplier_order.id%></td>
+<td class="govuk-table__cell"><%= supplier_order.amount%></td>
+<td class="govuk-table__cell"><%= supplier_order.created_at.strftime('%Y-%m-%d')%></td>
+<td class="govuk-table__cell"><%= supplier_order.status == 0 ? "Incomplete" : "Completed"%></td>
+
+
+</tr>

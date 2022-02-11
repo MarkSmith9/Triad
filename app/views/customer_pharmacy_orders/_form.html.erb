@@ -1,0 +1,23 @@
+<%= form_with(model: [@customer_pharmacy_order.pharmacy, @customer_pharmacy_order]) do |form| %>
+  <% if customer_pharmacy_order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(customer_pharmacy_order.errors.count, "error") %> prohibited this bid from being saved:</h2>
+
+      <ul>
+        <% customer_pharmacy_order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div>
+    <%= form.label "Collection Date", style: "display: block", class: 'govuk-label' %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.submit class:"govuk-button"%>
+  </div>
+<% end %>

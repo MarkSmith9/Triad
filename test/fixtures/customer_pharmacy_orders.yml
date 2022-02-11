@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  pharmacy: one
+  date: 2022-02-11
+  collected: false
+
+two:
+  customer: two
+  pharmacy: two
+  date: 2022-02-11
+  collected: false
